@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  # Local vLLM Inference Server (for AMD ROCm execution environment)
+  vllm-local:
+    image: rocm/vllm:latest
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    group_add:
+      - video
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - /models:/models
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+    command: >
+      --model google/gemma-3-4b-it
+      --served-model-name gemma-3-4b-it
+      --dtype bfloat16
+      --max-model-len 8192
+      --gpu-memory-utilization 0.85
+      --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+
+  # API gateway service
+  cascade-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server
+    environment:
+      - FIREWORKS_API_KEY=${FIREWORKS_API_KEY}
+      - LOCAL_VLLM_URL=http://vllm-local:8000/v1
+      - FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
+      - LOCAL_MODEL=google/gemma-3-4b-it
+      - REMOTE_MODEL=gemma-3-27b-it
+      - ESCALATION_THRESHOLD=${ESCALATION_THRESHOLD:-0.72}
+      - CACHE_SIMILARITY_THRESHOLD=0.96
+      - SELF_CONSISTENCY_N=3
+      - SELF_REFINE_ROUNDS=1
+      - SIMULATE_LOCAL=False
+    ports:
+      - "8080:8080"
+
+  # Streamlit dashboard visualizer
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dashboard
+    environment:
+      - API_URL=http://cascade-api:8080
+    ports:
+      - "8501:8501"
+    depends_on:
+      - cascade-api

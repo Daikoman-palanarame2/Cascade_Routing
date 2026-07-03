@@ -1,0 +1,21 @@
+# Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Databases and Local Cache
+*.db
+*.db.bak
+dashboard_history.json
+
+# Logs
+*.log

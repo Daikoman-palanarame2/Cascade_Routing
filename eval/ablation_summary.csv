@@ -1,0 +1,5 @@
+Configuration,Accuracy,Total Tokens Paid,Token Savings %
+Full Cascade,67.5%,0,100.0%
+No Classifier,67.5%,0,100.0%
+No Verifier (Agreement),95.0%,810,96.6%
+No Judge Gate,100.0%,1200,95.0%

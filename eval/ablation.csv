@@ -1,0 +1,41 @@
+query,tier_used,tokens_paid,confidence,local_correct,stage,p_easy,agreement,judge_score
+What is 15 * 6?,escalated,30,0.69,1,,0.5,1.0,0.6
+Translate hello to Spanish,local,0,0.77,1,,0.5,1.0,0.8
+Capital of France,local,0,0.85,1,,0.5,1.0,1.0
+Write a python loop from 1 to 10,local,0,0.85,1,,0.5,1.0,1.0
+What is the derivative of x^2?,local,0,0.85,1,,0.5,1.0,1.0
+Explain quantum computing in one sentence,local,0,0.85,1,,0.5,1.0,1.0
+How to boil an egg?,escalated,30,0.65,1,,0.5,0.3333333333333333,1.0
+What is 2 + 2?,escalated,30,0.69,1,,0.5,1.0,0.6
+Solve for x: 3x + 5 = 20,local,0,0.77,1,,0.5,1.0,0.8
+Name a type of bird,local,0,0.85,1,,0.5,1.0,1.0
+What is the speed of light?,escalated,30,0.69,1,,0.5,1.0,0.6
+How many hours in a day?,local,0,0.77,1,,0.5,1.0,0.8
+Explain what a list is in Python,local,0,0.85,1,,0.5,1.0,1.0
+What is the largest ocean?,local,0,0.85,1,,0.5,1.0,1.0
+Write a SQL query to select all records,local,0,0.85,1,,0.5,1.0,1.0
+Explain double entry bookkeeping in detail with examples,local,0,0.77,0,,0.5,1.0,0.8
+"Calculate the eigenvalues of a 4x4 matrix [[2,1,0,0],[1,2,1,0],[0,1,2,1],[0,0,1,2]]",local,0,0.85,0,,0.5,1.0,1.0
+Implement a lock-free queue in C++ using atomic pointers,escalated,30,0.69,0,,0.5,1.0,0.6
+Write a comprehensive essay on the impact of the printing press,local,0,0.77,0,,0.5,1.0,0.8
+Prove that there are infinitely many primes,local,0,0.77,0,,0.5,1.0,0.8
+Analyze the themes of isolation in Gabriel Garcia Marquez's 100 Years of Solitude,escalated,30,0.69,0,,0.5,1.0,0.6
+Design a highly available distributed key-value store architecture,escalated,30,0.69,0,,0.5,1.0,0.6
+Derive the black scholes formula from scratch,local,0,0.85,0,,0.5,1.0,1.0
+Solve the traveling salesman problem for 20 cities using branch and bound,local,0,0.77,0,,0.5,1.0,0.8
+Explain the biochemistry of the Krebs cycle step-by-step,escalated,30,0.69,0,,0.5,1.0,0.6
+What is the chemical formula for photosynthesis?,local,0,0.85,1,,0.5,1.0,1.0
+Who wrote Romeo and Juliet?,escalated,30,0.65,1,,0.5,0.3333333333333333,1.0
+Convert 100 kilometers to miles,escalated,30,0.69,1,,0.5,1.0,0.6
+Write a rust function to parse json,escalated,30,0.69,0,,0.5,1.0,0.6
+How do neural networks learn?,escalated,30,0.69,0,,0.5,1.0,0.6
+Explain the difference between TCP and UDP,local,0,0.77,1,,0.5,1.0,0.8
+Define photosynthesis,local,0,0.77,1,,0.5,1.0,0.8
+What is the boiling point of water?,local,0,0.77,1,,0.5,1.0,0.8
+Who was the first person on the moon?,local,0,0.77,1,,0.5,1.0,0.8
+What is 34 * 89?,local,0,0.77,1,,0.5,1.0,0.8
+What is the square root of 144?,escalated,30,0.69,1,,0.5,1.0,0.6
+What is the currency of Japan?,local,0,0.77,1,,0.5,1.0,0.8
+Write a python script to read a CSV,escalated,30,0.69,1,,0.5,1.0,0.6
+Who painted the Mona Lisa?,local,0,0.77,1,,0.5,1.0,0.8
+What are the three laws of thermodynamics?,local,0,0.77,0,,0.5,1.0,0.8
