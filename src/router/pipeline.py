@@ -1,3 +1,4 @@
+import os
 from dataclasses import dataclass
 from typing import Dict, Any
 import src.config as config
@@ -128,6 +129,3 @@ class RoutingPipeline:
                 "completion_tokens": esc["completion_tokens"]
             },
         )
-
-# Import os for path checking in classmethod
-import os

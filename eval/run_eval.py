@@ -87,6 +87,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate Cascade Routing Agent on dev set")
     parser.add_argument("--dev-set", type=str, default="eval/dev_set.csv", help="Path to dev set CSV")
     parser.add_argument("--output", type=str, default="eval/ablation.csv", help="Path to output results CSV")
-    args = parser.parse_value = parser.parse_args()
+    args = parser.parse_args()
     
     asyncio.run(evaluate_dev_set(args.dev_set, args.output))
