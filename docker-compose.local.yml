@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  # API gateway service
+  cascade-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server
+    environment:
+      - FIREWORKS_API_KEY=${FIREWORKS_API_KEY}
+      - LOCAL_VLLM_URL=https://api.fireworks.ai/inference/v1
+      - FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
+      - LOCAL_MODEL=google/gemma-3-4b-it
+      - REMOTE_MODEL=gemma-3-27b-it
+      - ESCALATION_THRESHOLD=${ESCALATION_THRESHOLD:-0.72}
+      - CACHE_SIMILARITY_THRESHOLD=0.96
+      - SELF_CONSISTENCY_N=3
+      - SELF_REFINE_ROUNDS=1
+      - SIMULATE_LOCAL=True
+      - MOCK_LLM=True
+    ports:
+      - "8080:8080"
+
+  # Streamlit dashboard visualizer
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dashboard
+    environment:
+      - API_URL=http://cascade-api:8080
+    ports:
+      - "8501:8501"
+    depends_on:
+      - cascade-api
